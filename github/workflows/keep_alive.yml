@@ -1,0 +1,16 @@
+name: Keep Hugging Face Space Alive
+
+on:
+  schedule:
+    # Roda a cada 12 horas (ajuste o cron se necessário)
+    - cron: '0 */12 * * *'
+  workflow_dispatch: # Permite rodar manualmente pelo painel
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Space URL
+        run: |
+          curl -I https://huggingface.co
+          
